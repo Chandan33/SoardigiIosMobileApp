@@ -10,6 +10,7 @@
 		05538BB96D2D9555E4E458EA /* Pods_SoardigiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7829F467FEDA47084B2866 /* Pods_SoardigiTests.framework */; };
 		118899D2DE5DDA496EF7399F /* Pods_Soardigi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A467AB076EDDF05DC3BB89 /* Pods_Soardigi.framework */; };
 		339E1939DE780A764178E924 /* Pods_Soardigi_SoardigiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 528D6FA691AC2761B4BD4010 /* Pods_Soardigi_SoardigiUITests.framework */; };
+		8B310B4829674F0200712FBC /* FacebookPagePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B310B4729674F0200712FBC /* FacebookPagePickerVC.swift */; };
 		8B36DB0728FD7C7E0035BA59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB0628FD7C7E0035BA59 /* AppDelegate.swift */; };
 		8B36DB0928FD7C7E0035BA59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB0828FD7C7E0035BA59 /* SceneDelegate.swift */; };
 		8B36DB0B28FD7C7E0035BA59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB0A28FD7C7E0035BA59 /* ViewController.swift */; };
@@ -31,8 +32,14 @@
 		8B4821A42917DB4B00449E67 /* CreateBusinessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4821A32917DB4B00449E67 /* CreateBusinessVC.swift */; };
 		8B4821A72917E97E00449E67 /* RequestBusinessCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4821A62917E97D00449E67 /* RequestBusinessCategoryVC.swift */; };
 		8B65E48D2901BA8B00E92F98 /* OTPVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B65E48C2901BA8A00E92F98 /* OTPVerificationVC.swift */; };
+		8B6833922961FA6100CC6D0E /* HomeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6833912961FA6100CC6D0E /* HomeDetailVC.swift */; };
+		8B6B166C296BF8E600EA1F01 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B166B296BF8E600EA1F01 /* AccountVC.swift */; };
+		8B6B166E296C806300EA1F01 /* ShowBusinessCategoryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B166D296C806300EA1F01 /* ShowBusinessCategoryDetailVC.swift */; };
+		8B6B1670296C89DD00EA1F01 /* BusinessCategoryPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B166F296C89DD00EA1F01 /* BusinessCategoryPickerVC.swift */; };
 		8B6C3BD728FF15210017F62F /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6C3BD628FF15210017F62F /* SignUpVC.swift */; };
 		8B6FB6A82911891F006529C4 /* ChooseLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FB6A72911891F006529C4 /* ChooseLanguageVC.swift */; };
+		8B7B462C2966B600008CB57D /* ShareDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B462B2966B600008CB57D /* ShareDetailVC.swift */; };
+		8B7B462E2966E0C9008CB57D /* FacebookShareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B462D2966E0C9008CB57D /* FacebookShareVC.swift */; };
 		8B7D3E53290058A300F4577B /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D3E50290058A100F4577B /* Mappable.swift */; };
 		8B7D3E54290058A300F4577B /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D3E51290058A200F4577B /* ServiceManager.swift */; };
 		8B7D3E55290058A300F4577B /* SMUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D3E52290058A200F4577B /* SMUtility.swift */; };
@@ -77,6 +84,7 @@
 		4DF13F8B4D2C9A28DA01C0AC /* Pods-Soardigi-SoardigiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soardigi-SoardigiUITests.debug.xcconfig"; path = "Target Support Files/Pods-Soardigi-SoardigiUITests/Pods-Soardigi-SoardigiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		528D6FA691AC2761B4BD4010 /* Pods_Soardigi_SoardigiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Soardigi_SoardigiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62A467AB076EDDF05DC3BB89 /* Pods_Soardigi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Soardigi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B310B4729674F0200712FBC /* FacebookPagePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookPagePickerVC.swift; sourceTree = "<group>"; };
 		8B36DB0328FD7C7E0035BA59 /* Soardigi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soardigi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B36DB0628FD7C7E0035BA59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B36DB0828FD7C7E0035BA59 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,8 +110,14 @@
 		8B4821A32917DB4B00449E67 /* CreateBusinessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessVC.swift; sourceTree = "<group>"; };
 		8B4821A62917E97D00449E67 /* RequestBusinessCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBusinessCategoryVC.swift; sourceTree = "<group>"; };
 		8B65E48C2901BA8A00E92F98 /* OTPVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationVC.swift; sourceTree = "<group>"; };
+		8B6833912961FA6100CC6D0E /* HomeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailVC.swift; sourceTree = "<group>"; };
+		8B6B166B296BF8E600EA1F01 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
+		8B6B166D296C806300EA1F01 /* ShowBusinessCategoryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBusinessCategoryDetailVC.swift; sourceTree = "<group>"; };
+		8B6B166F296C89DD00EA1F01 /* BusinessCategoryPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCategoryPickerVC.swift; sourceTree = "<group>"; };
 		8B6C3BD628FF15210017F62F /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		8B6FB6A72911891F006529C4 /* ChooseLanguageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageVC.swift; sourceTree = "<group>"; };
+		8B7B462B2966B600008CB57D /* ShareDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDetailVC.swift; sourceTree = "<group>"; };
+		8B7B462D2966E0C9008CB57D /* FacebookShareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookShareVC.swift; sourceTree = "<group>"; };
 		8B7D3E50290058A100F4577B /* Mappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
 		8B7D3E51290058A200F4577B /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		8B7D3E52290058A200F4577B /* SMUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMUtility.swift; sourceTree = "<group>"; };
@@ -233,6 +247,9 @@
 		8B36DB3628FD9EDC0035BA59 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8B6B166A296BF8C900EA1F01 /* AccountVC */,
+				8B7B462A2966B5EA008CB57D /* ShareDetailVC */,
+				8B6833902961FA3600CC6D0E /* HomeDetailVC */,
 				8BAA823B2922BB9300F9EDA8 /* TabViewController */,
 				8B41DA1F29214BF400CB0F94 /* HomeVC */,
 				8B8C651E291F89A80053C36A /* BusinessImageFrameVC */,
@@ -244,6 +261,9 @@
 				8BCBD23829000EE800CED2C8 /* CountryPickerVC */,
 				8B6C3BD528FF15000017F62F /* SignUpVC */,
 				8B36DB3728FD9EEB0035BA59 /* LoginVC */,
+				8B7B462D2966E0C9008CB57D /* FacebookShareVC.swift */,
+				8B6B166D296C806300EA1F01 /* ShowBusinessCategoryDetailVC.swift */,
+				8B6B166F296C89DD00EA1F01 /* BusinessCategoryPickerVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -302,6 +322,22 @@
 			path = OTPVerificationVC;
 			sourceTree = "<group>";
 		};
+		8B6833902961FA3600CC6D0E /* HomeDetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B6833912961FA6100CC6D0E /* HomeDetailVC.swift */,
+			);
+			path = HomeDetailVC;
+			sourceTree = "<group>";
+		};
+		8B6B166A296BF8C900EA1F01 /* AccountVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B6B166B296BF8E600EA1F01 /* AccountVC.swift */,
+			);
+			path = AccountVC;
+			sourceTree = "<group>";
+		};
 		8B6C3BD528FF15000017F62F /* SignUpVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +352,15 @@
 				8B6FB6A72911891F006529C4 /* ChooseLanguageVC.swift */,
 			);
 			path = ChooseLanguageVC;
+			sourceTree = "<group>";
+		};
+		8B7B462A2966B5EA008CB57D /* ShareDetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B7B462B2966B600008CB57D /* ShareDetailVC.swift */,
+				8B310B4729674F0200712FBC /* FacebookPagePickerVC.swift */,
+			);
+			path = ShareDetailVC;
 			sourceTree = "<group>";
 		};
 		8B7D3E4F2900588F00F4577B /* ServerManager */ = {
@@ -694,19 +739,24 @@
 				8B86671E290044A100AB4C0E /* SoardigiExtension.swift in Sources */,
 				8B36DB4528FDA3590035BA59 /* CustomView.swift in Sources */,
 				8BCBD241290010D700CED2C8 /* CountryCodeCell.swift in Sources */,
+				8B6833922961FA6100CC6D0E /* HomeDetailVC.swift in Sources */,
 				8B36DB4328FDA3590035BA59 /* CustomImageView.swift in Sources */,
 				8B65E48D2901BA8B00E92F98 /* OTPVerificationVC.swift in Sources */,
 				8B7D3E6329005A8700F4577B /* SoardigiStruct.swift in Sources */,
 				8B8C6520291F89C00053C36A /* BusinessImageFrameVC.swift in Sources */,
 				8B41DA2129214C0E00CB0F94 /* HomeVC.swift in Sources */,
 				8B7D3E54290058A300F4577B /* ServiceManager.swift in Sources */,
+				8B6B166E296C806300EA1F01 /* ShowBusinessCategoryDetailVC.swift in Sources */,
 				8B36DB0728FD7C7E0035BA59 /* AppDelegate.swift in Sources */,
 				8BAA823D2922BBD700F9EDA8 /* TabViewController.swift in Sources */,
+				8B7B462E2966E0C9008CB57D /* FacebookShareVC.swift in Sources */,
+				8B6B1670296C89DD00EA1F01 /* BusinessCategoryPickerVC.swift in Sources */,
 				8BCBD23D29000F8D00CED2C8 /* CountryCodeViewModel.swift in Sources */,
 				8B7D3E55290058A300F4577B /* SMUtility.swift in Sources */,
 				8B7D3E60290059A500F4577B /* Constant.swift in Sources */,
 				8B6C3BD728FF15210017F62F /* SignUpVC.swift in Sources */,
 				8B7D3E53290058A300F4577B /* Mappable.swift in Sources */,
+				8B6B166C296BF8E600EA1F01 /* AccountVC.swift in Sources */,
 				8BAD1A0C2913EA1F00CD8B60 /* HomeViewModel.swift in Sources */,
 				8B36DB4428FDA3590035BA59 /* CustomLabel.swift in Sources */,
 				8B4821A72917E97E00449E67 /* RequestBusinessCategoryVC.swift in Sources */,
@@ -718,9 +768,11 @@
 				8B36DB4228FDA3590035BA59 /* CustomColor.swift in Sources */,
 				8B36DB0928FD7C7E0035BA59 /* SceneDelegate.swift in Sources */,
 				8B7D3E59290058C100F4577B /* UserModel.swift in Sources */,
+				8B310B4829674F0200712FBC /* FacebookPagePickerVC.swift in Sources */,
 				8B36DB4628FDA3590035BA59 /* CustomTextField.swift in Sources */,
 				8B6FB6A82911891F006529C4 /* ChooseLanguageVC.swift in Sources */,
 				8BAD1A0A2913D78700CD8B60 /* BusinessCategoryCVC.swift in Sources */,
+				8B7B462C2966B600008CB57D /* ShareDetailVC.swift in Sources */,
 				8B4821A42917DB4B00449E67 /* CreateBusinessVC.swift in Sources */,
 				8BAD1A072913CA0E00CD8B60 /* SelectBusinessVC.swift in Sources */,
 			);
@@ -900,9 +952,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Soardigi/Soardigi.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6U326QH44X;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = SV79D9BQY9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Soardigi/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Soardigi wants to access the camera to add the business photo";
@@ -918,9 +972,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = development.DemoFacebookPost1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.soardigi.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Soardigi;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -938,9 +993,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Soardigi/Soardigi.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6U326QH44X;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = SV79D9BQY9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Soardigi/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Soardigi wants to access the camera to add the business photo";
@@ -956,9 +1013,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = development.DemoFacebookPost1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.soardigi.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Soardigi;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

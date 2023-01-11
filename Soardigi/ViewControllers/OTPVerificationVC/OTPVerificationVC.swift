@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OTPVerificationVC: UIViewController {
+class OTPVerificationVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak fileprivate var tf1:CustomTextField!
     @IBOutlet weak fileprivate var tf2:CustomTextField!
     @IBOutlet weak fileprivate var tf3:CustomTextField!
@@ -24,65 +24,84 @@ class OTPVerificationVC: UIViewController {
     fileprivate var userViewModel:UserViewModel = UserViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-                 
-        
+        self.tf1.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        self.tf1.textContentType = .oneTimeCode
+        tf1.becomeFirstResponder()
+       
         // Do any additional setup after loading the view.
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    @objc func textFieldDidChange(_ textField: CustomTextField) {
+        
+            if textField.textContentType == UITextContentType.oneTimeCode{
+                textField.maxLength = 6
+                //here split the text to your four text fields
+                if let otpCode = textField.text, otpCode.count > 5 {
+                    tf1.text = String(otpCode[otpCode.index(otpCode.startIndex, offsetBy: 0)])
+                    tf2.text = String(otpCode[otpCode.index(otpCode.startIndex, offsetBy: 1)])
+                    tf3.text = String(otpCode[otpCode.index(otpCode.startIndex, offsetBy: 2)])
+                    tf4.text = String(otpCode[otpCode.index(otpCode.startIndex, offsetBy: 3)])
+                    tf5.text = String(otpCode[otpCode.index(otpCode.startIndex, offsetBy: 4)])
+                    tf6.text = String(otpCode[otpCode.index(otpCode.startIndex, offsetBy: 5)])
+                }
+            }
+       }
     
-    @IBAction fileprivate func textFieldDidChanged(_ sender: CustomTextField) {
-        let text = sender.text
-        if text?.utf16.count == 1{
-            switch sender{
-            case tf1:
-                tf2.becomeFirstResponder()
-            case tf2:
-                tf3.becomeFirstResponder()
-            case tf3:
-                tf4.becomeFirstResponder()
-            case tf4:
-                tf5.becomeFirstResponder()
-            case tf5:
-                tf6.becomeFirstResponder()
-            case tf6:
-                tf6.resignFirstResponder()
-            default:
-                break
-            }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+          if (string.count == 1){
+              if textField == tf1 {
+                  tf2?.becomeFirstResponder()
+              }
+              if textField == tf2 {
+                  tf3?.becomeFirstResponder()
+              }
+              if textField == tf3 {
+                  tf4?.becomeFirstResponder()
+              }
+              if textField == tf4 {
+                  tf5?.becomeFirstResponder()
+              }
+              if textField == tf5 {
+                  tf6?.becomeFirstResponder()
+              }
+              if textField == tf6 {
+                  tf6?.resignFirstResponder()
+                  textField.text? = string
+              }
+              textField.text? = string
+              return false
+          }else{
+              if textField == tf1 {
+                  tf1?.becomeFirstResponder()
+              }
+              if textField == tf2 {
+                  tf1?.becomeFirstResponder()
+              }
+              if textField == tf3 {
+                  tf2?.becomeFirstResponder()
+              }
+              if textField == tf4 {
+                  tf3?.becomeFirstResponder()
+              }
+              if textField == tf5 {
+                  tf4?.becomeFirstResponder()
+              }
+              if textField == tf6 {
+                  tf5?.becomeFirstResponder()
+              }
+              textField.text? = string
+              return false
+          }
+      }
+    
+    @IBAction func onClickResendOTP(_ sender: UIButton) {
+        userViewModel.login(selectedType:selectedType,sender: self, email: email, phone: phone, code: code, type: selectedType.value ?? "", onSuccess: {
             
-            
-        }
-        else if text?.utf16.count == 0{
-            switch sender{
-            case tf1:
-                tf1.resignFirstResponder()
-            case tf2:
-                tf1.becomeFirstResponder()
-            case tf3:
-                tf2.becomeFirstResponder()
-            case tf4:
-                tf3.becomeFirstResponder()
-            case tf5:
-                tf4.becomeFirstResponder()
-            case tf6:
-                tf5.becomeFirstResponder()
-            default:
-                break
-            }
-           
-        }
-        else  {
-            
-        }
+                    showAlertWithSingleAction(sender: self, message: "OTP sent successfully")
+                }, onFailure: {
+        
+                })
     }
     
     @IBAction func onClickVerification(_ sender: UIButton) {

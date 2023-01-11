@@ -9,17 +9,22 @@ import UIKit
 import Kingfisher
 class SelectBusinessVC: UIViewController {
     
-    
     fileprivate var homeViewModel:HomeViewModel = HomeViewModel()
     @IBOutlet weak fileprivate var collectionView:UICollectionView!
+    @IBOutlet weak fileprivate var searchBar:UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
-        homeViewModel.getBusineesCategory(sender: self, onSuccess: {
+        loadData()
+        searchBar.delegate = self
+        definesPresentationContext = true
+        // Do any additional setup after loading the view.
+    }
+    func loadData(search:String = "") {
+        homeViewModel.getBusineesCategory(search:search,sender: self, onSuccess: {
             self.collectionView.reloadData()
         }, onFailure: {
             
         })
-        // Do any additional setup after loading the view.
     }
 }
 
@@ -53,6 +58,15 @@ extension SelectBusinessVC:UICollectionViewDelegate,UICollectionViewDataSource,U
         vc.heading = data.name ?? ""
         vc.id = data.id ?? 0
         self.navigationController?.pushViewController(vc, animated: true)
-        
-    }
+     }
+}
+
+extension SelectBusinessVC:UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+        loadData(search: searchText)
+
+
+        }
+
 }

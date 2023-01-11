@@ -8,13 +8,26 @@
 import UIKit
 
 class RequestBusinessCategoryVC: UIViewController {
-
+    @IBOutlet weak fileprivate var businessTF:UITextField!
+    fileprivate var homeViewModel:HomeViewModel = HomeViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func onClickRequest(_ sender:UIButton) {
+        if !(businessTF.text!.isEmpty) {
+            homeViewModel.saveCategory(categoryName: businessTF.text ?? "", sender: self, onSuccess: {
+                self.dismiss(animated: true)
+            }, onFailure: {
+                
+            })
+        } else {
+            showAlertWithSingleAction(sender: self, message: "Please enter category name")
+        }
+    }
 
     /*
     // MARK: - Navigation

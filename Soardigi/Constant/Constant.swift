@@ -10,6 +10,8 @@ import UIKit
 import CoreLocation
 import KRProgressHUD
 let kAuthTokenKey   =  "AuthToken"
+let kPageName   =  "PageName"
+let kPageId = "PageId"
 let kRoleCode = "RoleCode"
 var userCoordinate:CLLocationCoordinate2D!
 var currentLocation:CLLocation!
@@ -98,15 +100,16 @@ func showAlertWithSingleAction(sender:UIViewController,message:String = "") {
     sender.present(alertController, animated: true, completion: nil)
 }
 
-func showAlertWithTwoActions(sender:UIViewController,message:String = "",title:String = "",onSuccess:@escaping()->Void) {
+func showAlertWithTwoActions(sender:UIViewController,message:String = "",title:String = "",secondTitle:String = "",onSuccess:@escaping()->Void,onCancel:@escaping()->Void) {
     let alertController = UIAlertController(title: kAppname, message: message, preferredStyle: .alert)
     // Create the actions
     let okAction = UIAlertAction(title: title, style: .destructive) {
         UIAlertAction in
         onSuccess()
     }
-    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {
+    let cancelAction = UIAlertAction(title: secondTitle, style: .cancel) {
         UIAlertAction in
+        onCancel()
     }
     
     // Add the actions
@@ -121,6 +124,26 @@ var accessToken:String{
     }
     set{
         UserDefaults.NTDefault(setObject: newValue, forKey: kAuthTokenKey )
+    }
+}
+
+var pageName:String {
+    get{
+        guard let accessToken = UserDefaults.NTDefault(objectForKey: kPageName) as? String else { return "" }
+        return accessToken
+    }
+    set{
+        UserDefaults.NTDefault(setObject: newValue, forKey: kPageName )
+    }
+}
+
+var pageId:String{
+    get{
+        guard let accessToken = UserDefaults.NTDefault(objectForKey: kPageId) as? String else { return "" }
+        return accessToken
+    }
+    set{
+        UserDefaults.NTDefault(setObject: newValue, forKey: kPageId )
     }
 }
 

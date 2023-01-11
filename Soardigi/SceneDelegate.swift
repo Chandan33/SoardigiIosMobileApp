@@ -21,10 +21,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         sleep(3)
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
-        
+        if !accessToken.isEmpty{
+            if let windowScene = scene as? UIWindowScene {
+                self.window = UIWindow(windowScene: windowScene)
+                if  ((self.window?.rootViewController) != nil)  {
+                    self.window?.rootViewController = nil
+                }
+                if  let loginNavigationController : UITabBarController = self.getController(name:"TabViewController", storyBoard: mainStoryboard) as? UITabBarController {
+             
+                 self.window?.rootViewController = loginNavigationController
+                 self.window?.makeKeyAndVisible()
+             }
+                }
+
+        }
     }
     
-   
+
+    private func getController(name identifier : String, storyBoard: UIStoryboard)->UIViewController
+    {
+        
+        let controller:UIViewController = storyBoard.instantiateViewController(withIdentifier: identifier)as UIViewController
+        return controller
+    }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         guard let url = URLContexts.first?.url else {

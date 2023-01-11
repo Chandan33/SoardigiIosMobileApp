@@ -66,7 +66,7 @@ struct API {
     static let kLoginOTP    =   "login"
     static let kLanguageGet    =   "language-get"
     static let kLanguageSave    =   "language-save"
-    
-    
+    static let kHomePage   =   "home-page"
+    static let kChangeBusiness = "change-business"
     
 }

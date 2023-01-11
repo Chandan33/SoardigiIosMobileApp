@@ -9,16 +9,18 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1074226713235419</string>
+				<string>fb622043945913818</string>
 			</array>
 		</dict>
 	</array>
 	<key>FacebookAppID</key>
-	<string>1074226713235419</string>
+	<string>622043945913818</string>
 	<key>FacebookClientToken</key>
-	<string>12084cb1b3d19584d13d9160dace1bde</string>
+	<string>6acbb7ea3db81118e85524d6dcc7861b</string>
 	<key>FacebookDisplayName</key>
-	<string>DemoFacebook</string>
+	<string>Soardigi</string>
+    <key>UIUserInterfaceStyle</key>
+    <string>Dark</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
