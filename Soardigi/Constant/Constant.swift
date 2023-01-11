@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 import CoreLocation
 import KRProgressHUD
+
 let kAuthTokenKey   =  "AuthToken"
+let kIsLogin   =  "isLogin"
 let kPageName   =  "PageName"
 let kPageId = "PageId"
 let kRoleCode = "RoleCode"
@@ -124,6 +126,16 @@ var accessToken:String{
     }
     set{
         UserDefaults.NTDefault(setObject: newValue, forKey: kAuthTokenKey )
+    }
+}
+
+var isLogin:Bool{
+    get{
+        guard let isLogin = UserDefaults.NTDefault(objectForKey: kIsLogin) as? Bool else { return false }
+        return isLogin
+    }
+    set{
+        UserDefaults.NTDefault(setObject: newValue, forKey: kIsLogin )
     }
 }
 

@@ -15,13 +15,27 @@ class ChooseLanguageVC: UIViewController {
     fileprivate var selectedLanguage:[SelectedLanguage] = [SelectedLanguage]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        homeViewModel.getLanguageList(sender: self, onSuccess: {
-            self.engBTN.isHidden = false
-            self.hindiBTN.isHidden = false
-            self.submitBTN.isHidden = false
+        homeViewModel.getBusineesList(sender: self, onSuccess: {
+            if self.homeViewModel.businessModel.count > 0 {
+                isLogin = true
+                if let tabViewController = mainStoryboard.instantiateViewController(withIdentifier: "TabViewController") as? TabViewController {
+                    self.present(tabViewController, animated: true, completion: nil)
+                }
+            } else {
+                isLogin = false
+                self.homeViewModel.getLanguageList(sender: self, onSuccess: {
+                    self.engBTN.isHidden = false
+                    self.hindiBTN.isHidden = false
+                    self.submitBTN.isHidden = false
+                }, onFailure: {
+                    
+                })
+            }
         }, onFailure: {
             
         })
+        
+        
         // Do any additional setup after loading the view.
     }
     
