@@ -11,6 +11,7 @@ class HomeDetailVC: UIViewController {
     fileprivate var homeViewModel:HomeViewModel = HomeViewModel()
     @IBOutlet weak fileprivate var collectionView:UICollectionView!
     var id:String = ""
+    var horizontalIndex:Int = 0
     fileprivate var  type:Int = 0
     fileprivate var selectedImageURL:String = ""
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
@@ -75,11 +76,18 @@ class HomeDetailVC: UIViewController {
     }
     
     @IBAction func onClickDownload(_ sender:UIButton) {
-        let vc = mainStoryboard.instantiateViewController(withIdentifier: "ShareDetailVC") as! ShareDetailVC
-        vc.image = self.imageView.image
-        vc.selectedImageURL = selectedImageURL
-        vc.typeSelected = type
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        let frameid = self.homeViewModel.categoryImagesResponseModel1[horizontalIndex].id ?? 0
+        homeViewModel.getImageWithFrames(id: frameid, imageURl: selectedImageURL, waterMark: 0, sender: self, onSuccess: {
+            
+        }, onFailure: {
+            
+        })
+//        let vc = mainStoryboard.instantiateViewController(withIdentifier: "ShareDetailVC") as! ShareDetailVC
+//        vc.image = self.imageView.image
+//        vc.selectedImageURL = selectedImageURL
+//        vc.typeSelected = type
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -148,6 +156,20 @@ extension HomeDetailVC:UICollectionViewDelegate,UICollectionViewDataSource,UICol
             return cell
         }
        
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        var visibleRect = CGRect()
+
+        visibleRect.origin = collectionViewUpper.contentOffset
+        visibleRect.size = collectionViewUpper.bounds.size
+
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+
+        guard let indexPath = collectionViewUpper.indexPathForItem(at: visiblePoint) else { return }
+        horizontalIndex = indexPath.row
+        print(indexPath.row)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

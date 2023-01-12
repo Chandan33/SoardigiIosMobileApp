@@ -1801,14 +1801,25 @@
                                                     <constraint firstAttribute="width" constant="25" id="b1Z-bI-Ezq"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B44-oi-LqS">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="61.666666666666664"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <connections>
+                                                    <action selector="onClickLogout:" destination="oPd-lK-Uu0" eventType="touchUpInside" id="bjm-ze-ZvD"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="B44-oi-LqS" secondAttribute="bottom" id="5Ch-OE-gzl"/>
                                             <constraint firstItem="hih-LP-v3h" firstAttribute="leading" secondItem="wFu-dS-tM8" secondAttribute="leading" id="9NN-wT-dzo"/>
+                                            <constraint firstItem="B44-oi-LqS" firstAttribute="top" secondItem="wFu-dS-tM8" secondAttribute="top" id="CXm-3Q-uOH"/>
                                             <constraint firstAttribute="bottom" secondItem="hih-LP-v3h" secondAttribute="bottom" constant="20" id="IEQ-rx-PXG"/>
+                                            <constraint firstAttribute="trailing" secondItem="B44-oi-LqS" secondAttribute="trailing" id="J9a-C0-NOI"/>
                                             <constraint firstItem="OmR-4d-A42" firstAttribute="centerY" secondItem="wFu-dS-tM8" secondAttribute="centerY" id="SK2-sT-f5n"/>
                                             <constraint firstAttribute="trailing" secondItem="hih-LP-v3h" secondAttribute="trailing" id="XtU-vg-ziP"/>
                                             <constraint firstItem="hih-LP-v3h" firstAttribute="top" secondItem="wFu-dS-tM8" secondAttribute="top" constant="20" id="lVc-LY-FNO"/>
+                                            <constraint firstItem="B44-oi-LqS" firstAttribute="leading" secondItem="wFu-dS-tM8" secondAttribute="leading" id="wIY-LE-Ppr"/>
                                             <constraint firstAttribute="trailing" secondItem="OmR-4d-A42" secondAttribute="trailing" id="yd8-Ee-3ET"/>
                                         </constraints>
                                     </view>

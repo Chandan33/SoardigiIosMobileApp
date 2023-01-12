@@ -119,6 +119,39 @@ class HomeViewModel: NSObject {
     }
     
     
+    func getImageWithFrames(id:Int = 0,imageURl:String,waterMark:Int = 0,sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender) {
+            showLoader(status: true)
+           
+            ServerManager.shared.httpGet(request:  "http://stgapi.soardigi.in/api/business-frame-first/64697505ab8add3aa07f761321d06014?frame=\(String(id))&watermark=\(0)&index=\(imageURl)"  , params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                
+                    DispatchQueue.main.async {
+                        showLoader()
+                        guard let response = responseData.decoder(HomeDetailFrameResponseMainModel.self) else{return}
+                        
+                        switch status{
+                        case 200:
+                            self.categoryImagesResponseModel1 = response.frames ?? []
+                            onSuccess()
+                            break
+                        default:
+                            onFailure()
+                            break
+                        }
+                    }
+                
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+            
+        }
+    }
+    
+    
     func getBusineesHomeImages(type:Int = 0,id:String = "",sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
         if  ServerManager.shared.CheckNetwork(sender: sender) {
             showLoader(status: true)

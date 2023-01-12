@@ -286,15 +286,16 @@ struct CategoryImagesResponseModel:Mappable {
 struct FrameImagesResponseModel:Mappable {
    
     let image: String?
-   
+    let id:Int?
     enum CodingKeys: String, CodingKey {
         case image = "frame_url"
+        case id = "id"
         
       }
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         image =   try values.decodeIfPresent(String.self, forKey: .image)
-        
+        id =   try values.decodeIfPresent(Int.self, forKey: .id)
     }
 }
 
