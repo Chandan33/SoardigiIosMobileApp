@@ -84,16 +84,22 @@ extension ShareDetailVC {
                     {
                         let array = ((result as! NSDictionary).value(forKey: "data") as! NSArray)
                         if array.count > 0 {
+                            showLoader()
                             for tokens in array {
                                 let tkn = ((tokens as! NSDictionary).value(forKey: "access_token")) as! String
                                 let id = ((tokens as! NSDictionary).value(forKey: "id")) as! String
                                 let name = ((tokens as! NSDictionary).value(forKey: "name")) as! String
                                 fbPageData.append(FBPageData(name: name, id: id, accessToken: tkn))
                             }
+                            let vc = mainStoryboard.instantiateViewController(withIdentifier: "FacebookShareVC") as! FacebookShareVC
+                            vc.fbPageData = self.fbPageData
+                            vc.dataUrl = selectedImageURL
+                            vc.typeSelected = typeSelected
+                            self.present(vc, animated: true, completion: nil)
                         } else {
+                            showLoader()
                             showAlertWithSingleAction(sender: self, message: "No page found")
                         }
-                        showLoader()
                         print(fbPageData)
                     }
                     

@@ -119,209 +119,111 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6ACA12A7-E167-4F86-9B31-CE151CF8BF96"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Soardigi/ViewControllers/AccountVC/AccountVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "onClickLogout(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6ACA12A7-E167-4F86-9B31-CE151CF8BF96 - c6e9c91529a6acde"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Soardigi.AccountVC.onClickLogout(__C.UIButton) -&gt; ()"
-                  moduleName = "Soardigi"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/developer/Documents/MyProject/SoardigiGithub/Soardigi/ViewControllers/AccountVC/AccountVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  uuid = "6ACA12A7-E167-4F86-9B31-CE151CF8BF96 - 123e7899f39e5417"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 () -&gt; () in Soardigi.AccountVC.onClickLogout(__C.UIButton) -&gt; ()"
-                  moduleName = "Soardigi"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/developer/Documents/MyProject/SoardigiGithub/Soardigi/ViewControllers/AccountVC/AccountVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "4">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "ACBAAE05-0A35-4A7F-BD31-D21173E543B9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Soardigi/ViewControllers/AccountVC/AccountVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "onClickLogout(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4EB88613-ACFB-4807-8EEF-96E6C16CC07B"
+            uuid = "3C932687-8AF0-464A-A51A-3200C5DD2491"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Soardigi/ViewModels/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "getImageWithFrames(id:imageURl:waterMark:sender:onSuccess:onFailure:)"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "userLogout(sender:onSuccess:onFailure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B63DA1CB-2D94-408C-B856-D6B84AE1DE34"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Soardigi/ViewControllers/AccountVC/AccountVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "onClickThemeChange(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1B2CD0B3-95B9-4FEB-A8D1-4924E85A70CC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Soardigi/ViewControllers/FacebookShareVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "postMessage(pageID:pageAccessToken:url:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "4EB88613-ACFB-4807-8EEF-96E6C16CC07B - f57477d7ab12a946"
+                  uuid = "1B2CD0B3-95B9-4FEB-A8D1-4924E85A70CC - 49ec99dddf76f847"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Foundation.Data, Swift.Int) -&gt; () in Soardigi.HomeViewModel.getImageWithFrames(id: Swift.Int, imageURl: Swift.String, waterMark: Swift.Int, sender: __C.UIViewController, onSuccess: () -&gt; (), onFailure: () -&gt; ()) -&gt; ()"
+                  symbolName = "Soardigi.FacebookShareVC.postMessage(pageID: Swift.String, pageAccessToken: Swift.String, url: Swift.String) -&gt; ()"
                   moduleName = "Soardigi"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/developer/Documents/MyProject/SoardigiGithub/Soardigi/ViewModels/HomeViewModel.swift"
+                  urlString = "file:///Users/developer/Documents/MyProject/SoardigiGithub/Soardigi/ViewControllers/FacebookShareVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
-                  offsetFromSymbolStart = "329">
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "2673">
                </Location>
                <Location
-                  uuid = "4EB88613-ACFB-4807-8EEF-96E6C16CC07B - 89aa840155ebc2d6"
+                  uuid = "1B2CD0B3-95B9-4FEB-A8D1-4924E85A70CC - 49ec99dddf76f847"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Foundation.Data, Swift.Int) -&gt; () in Soardigi.HomeViewModel.getImageWithFrames(id: Swift.Int, imageURl: Swift.String, waterMark: Swift.Int, sender: __C.UIViewController, onSuccess: () -&gt; (), onFailure: () -&gt; ()) -&gt; ()"
+                  symbolName = "Soardigi.FacebookShareVC.postMessage(pageID: Swift.String, pageAccessToken: Swift.String, url: Swift.String) -&gt; ()"
                   moduleName = "Soardigi"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/developer/Documents/MyProject/SoardigiGithub/Soardigi/ViewModels/HomeViewModel.swift"
+                  urlString = "file:///Users/developer/Documents/MyProject/SoardigiGithub/Soardigi/ViewControllers/FacebookShareVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "129"
-                  endingLineNumber = "129"
-                  offsetFromSymbolStart = "261">
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "3452">
+               </Location>
+               <Location
+                  uuid = "1B2CD0B3-95B9-4FEB-A8D1-4924E85A70CC - 49ec99dddf76f847"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Soardigi.FacebookShareVC.postMessage(pageID: Swift.String, pageAccessToken: Swift.String, url: Swift.String) -&gt; ()"
+                  moduleName = "Soardigi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer/Documents/MyProject/SoardigiGithub/Soardigi/ViewControllers/FacebookShareVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "5554">
+               </Location>
+               <Location
+                  uuid = "1B2CD0B3-95B9-4FEB-A8D1-4924E85A70CC - 49ec99dddf76f847"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Soardigi.FacebookShareVC.postMessage(pageID: Swift.String, pageAccessToken: Swift.String, url: Swift.String) -&gt; ()"
+                  moduleName = "Soardigi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer/Documents/MyProject/SoardigiGithub/Soardigi/ViewControllers/FacebookShareVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "6737">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1BEFBD2E-5A1B-4015-BCA6-73BF6C8F6497"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Soardigi/ViewModels/HomeViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "getImageWithFrames(id:imageURl:waterMark:sender:onSuccess:onFailure:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "1BEFBD2E-5A1B-4015-BCA6-73BF6C8F6497 - 88900e86c4a7daf0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Soardigi.HomeViewModel.getImageWithFrames(id: Swift.Int, imageURl: Swift.String, waterMark: Swift.Int, sender: __C.UIViewController, onSuccess: () -&gt; (), onFailure: () -&gt; ()) -&gt; ()"
-                  moduleName = "Soardigi"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/developer/Documents/MyProject/SoardigiGithub/Soardigi/ViewModels/HomeViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
-                  offsetFromSymbolStart = "439">
-               </Location>
-               <Location
-                  uuid = "1BEFBD2E-5A1B-4015-BCA6-73BF6C8F6497 - f57477d7ab12a946"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Foundation.Data, Swift.Int) -&gt; () in Soardigi.HomeViewModel.getImageWithFrames(id: Swift.Int, imageURl: Swift.String, waterMark: Swift.Int, sender: __C.UIViewController, onSuccess: () -&gt; (), onFailure: () -&gt; ()) -&gt; ()"
-                  moduleName = "Soardigi"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/developer/Documents/MyProject/SoardigiGithub/Soardigi/ViewModels/HomeViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
-                  offsetFromSymbolStart = "329">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6825A341-8D3C-40E4-A582-98DEB81722EF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Soardigi/ServerManager/ServiceManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
-            landmarkName = "requestTask(url:method:isBackgroundTask:params:headers:successHandler:failureHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "ADAC0C16-22BA-449F-B96A-C3656E16709D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/Alamofire/Source/SessionManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
-            landmarkName = "SessionManager"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3D45C8DD-3755-472F-9EF5-6526D85C070E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/Alamofire/Source/SessionManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
-            landmarkName = "SessionManager"
-            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

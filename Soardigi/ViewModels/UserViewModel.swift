@@ -152,6 +152,60 @@ class UserViewModel: NSObject {
         }
     }
     
+    
+    func updateProfile(sender:UIViewController,name:String = "",email:String = "",countryCode:String = "",mobile:String = "",refreal:String = "",onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender){
+            if name.isEmpty{
+                showAlertWithSingleAction(sender:sender, message: ValidationMessage.kFirstName)
+            } else if email.isEmpty{
+                showAlertWithSingleAction(sender:sender, message: ValidationMessage.kEmail)
+            }  else if !email.isEmail{
+                showAlertWithSingleAction(sender:sender, message: "Please enter valid email")
+            }else if mobile.isEmpty{
+                
+                showAlertWithSingleAction(sender:sender, message: ValidationMessage.kPhone)
+            } else if mobile.count < 10{
+                showAlertWithSingleAction(sender:sender, message: "Mobile number must be of 10 digits")
+            } else if !refreal.isEmpty && refreal.count < 6{
+                showAlertWithSingleAction(sender:sender, message: "Refreal Code must be of 6 characters")
+            } else{
+                let params:[String:Any] = ["name":name,"email":email, "phone":mobile , "ref_code" :refreal, "code":countryCode]
+                showLoader(status: true)
+                ServerManager.shared.httpPost(request: "http://stgapi.soardigi.in/api/auth/v1/profile", params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                    
+                    DispatchQueue.main.async {
+                        showLoader()
+                        guard let response = responseData.decoder(UserResponseModel1.self) else{return}
+                        
+                        switch status {
+                        case 200:
+                            if !response.success {
+                                showAlertWithSingleAction(sender: sender, message: response.message ?? "")
+                                
+                                onFailure()
+                            } else {
+                                onSuccess()
+                            }
+                            
+                            break
+                        default:
+                            showAlertWithSingleAction(sender: sender, message: response.message ?? "")
+                            
+                            onFailure()
+                            break
+                        }
+                    }
+                }, failureHandler: { (error) in
+                    DispatchQueue.main.async {
+                        showLoader()
+                        showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                        onFailure()
+                    }
+                })
+            }
+        }
+    }
+    
     func otpVerification(type:String = "1",isFromLogin:Bool = false
                          ,name:String = "",phone:String = "",code:String = "",sender:UIViewController,email:String = "",otp:String = "",onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
         if  ServerManager.shared.CheckNetwork(sender: sender) {

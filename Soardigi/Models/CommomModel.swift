@@ -23,6 +23,22 @@ struct LanguageResponseMainModel:Mappable {
     }
 }
 
+struct GetUserResponseMainModel:Mappable {
+    let status : Bool?
+    var user:UserResponseModel?
+    enum CodingKeys: String, CodingKey {
+        case status  = "success"
+        case user = "user"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+       status = try values.decodeIfPresent(Bool.self, forKey: .status)
+        guard let user =  try values.decodeIfPresent(UserResponseModel.self, forKey: .user) else{ return }
+        self.user = user
+    }
+}
+
 
 struct BusinessCategoryModel:Mappable {
     let name: String?
@@ -113,11 +129,13 @@ struct BusinessCategoryResponseMainModel:Mappable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-       status = try values.decodeIfPresent(Bool.self, forKey: .status)
+        status = try values.decodeIfPresent(Bool.self, forKey: .status)
         guard let businessCategoryResponseModel =  try values.decodeIfPresent([BusinessCategoryResponseModel].self, forKey: .businessCategoryResponseModel) else{ return }
         self.businessCategoryResponseModel = businessCategoryResponseModel
     }
 }
+
+
 
 
 struct BusinessFrameResponseMainModel:Mappable {
@@ -133,6 +151,22 @@ struct BusinessFrameResponseMainModel:Mappable {
        status = try values.decodeIfPresent(Bool.self, forKey: .status)
         guard let frames =  try values.decodeIfPresent([ImageFrameResponseModel].self, forKey: .frames) else{ return }
         self.frames = frames
+    }
+}
+
+struct BusinessCategoryResponseMainModel1:Mappable {
+    let status : Bool?
+    var businessCategoryResponseModel:[BusinessCategoryResponseModel1]?
+    enum CodingKeys: String, CodingKey {
+        case status  = "success"
+        case businessCategoryResponseModel = "categories"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        status = try values.decodeIfPresent(Bool.self, forKey: .status)
+        guard let businessCategoryResponseModel =  try values.decodeIfPresent([BusinessCategoryResponseModel1].self, forKey: .businessCategoryResponseModel) else{ return }
+        self.businessCategoryResponseModel = businessCategoryResponseModel
     }
 }
 
@@ -302,16 +336,38 @@ struct FrameImagesResponseModel:Mappable {
 struct LanguageResponseModel:Mappable {
    
     let name: String?
-    let id:Int?
+    let id,selected:Int?
     
     enum CodingKeys: String, CodingKey {
         case name = "name"
         case id = "id"
+        case selected
       }
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         name =   try values.decodeIfPresent(String.self, forKey: .name)
         id =   try values.decodeIfPresent(Int.self, forKey: .id)
+        selected =   try values.decodeIfPresent(Int.self, forKey: .selected)
+    }
+}
+
+struct UserResponseModel:Mappable {
+   
+    let email,name,profile,mobile_no,code,ref_code: String?
+    let points:Int?
+    enum CodingKeys: String, CodingKey {
+        case email,name,profile,mobile_no,code,ref_code
+        case points
+      }
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        email =   try values.decodeIfPresent(String.self, forKey: .email)
+        name =   try values.decodeIfPresent(String.self, forKey: .name)
+        profile =   try values.decodeIfPresent(String.self, forKey: .profile)
+        mobile_no =   try values.decodeIfPresent(String.self, forKey: .mobile_no)
+        code =   try values.decodeIfPresent(String.self, forKey: .code)
+        ref_code =   try values.decodeIfPresent(String.self, forKey: .ref_code)
+        points =   try values.decodeIfPresent(Int.self, forKey: .points)
     }
 }
 
@@ -334,6 +390,24 @@ struct BusinessCategoryResponseModel:Mappable {
     }
 }
 
+
+struct BusinessCategoryResponseModel1:Mappable {
+   
+    let name,thumbnail: String?
+    let id:String?
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case thumbnail = "thumbnail"
+        case id = "id"
+      }
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        name =   try values.decodeIfPresent(String.self, forKey: .name)
+        thumbnail =   try values.decodeIfPresent(String.self, forKey: .thumbnail)
+        id =   try values.decodeIfPresent(String.self, forKey: .id)
+    }
+}
 
 struct ImageFrameResponseModel:Mappable {
    

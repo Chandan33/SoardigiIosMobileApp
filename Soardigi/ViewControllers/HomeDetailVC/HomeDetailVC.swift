@@ -6,8 +6,10 @@
 //
 
 import UIKit
-
+import FBSDKLoginKit
+import FBSDKCoreKit
 class HomeDetailVC: UIViewController {
+    fileprivate var fbPageData:[FBPageData] = [FBPageData]()
     fileprivate var homeViewModel:HomeViewModel = HomeViewModel()
     @IBOutlet weak fileprivate var collectionView:UICollectionView!
     var id:String = ""
@@ -77,17 +79,59 @@ class HomeDetailVC: UIViewController {
     
     @IBAction func onClickDownload(_ sender:UIButton) {
         
-        let frameid = self.homeViewModel.categoryImagesResponseModel1[horizontalIndex].id ?? 0
-        homeViewModel.getImageWithFrames(id: frameid, imageURl: selectedImageURL, waterMark: 0, sender: self, onSuccess: {
+//        let frameid = self.homeViewModel.categoryImagesResponseModel1[horizontalIndex].id ?? 0
+//        homeViewModel.getImageWithFrames(id: frameid, imageURl: selectedImageURL, waterMark: 0, sender: self, onSuccess: {
+//
+//        }, onFailure: {
+//
+//        })
+        
+        
+        if  !pageName.isEmpty  && !pageId.isEmpty {
+            if AccessToken.current?.tokenString != nil {
+                showLoader(status: true)
+                let graphRequest
+                = GraphRequest(graphPath: "/me/accounts?fields=access_token,name", parameters: ["access_token":AccessToken.current?.tokenString])
+                graphRequest.start( completion: { [self] (connection, result, error)-> Void in
+                    if ((error) != nil)
+                    {
+                        print("Error: \(error)")
+                    }
+                    else
+                    {
+                        
+                        let array = ((result as! NSDictionary).value(forKey: "data") as! NSArray)
+                        if array.count > 0 {
+                            showLoader()
+                            for tokens in array {
+                                let tkn = ((tokens as! NSDictionary).value(forKey: "access_token")) as! String
+                                let id = ((tokens as! NSDictionary).value(forKey: "id")) as! String
+                                let name = ((tokens as! NSDictionary).value(forKey: "name")) as! String
+                                fbPageData.append(FBPageData(name: name, id: id, accessToken: tkn))
+                            }
+                            let vc = mainStoryboard.instantiateViewController(withIdentifier: "FacebookShareVC") as! FacebookShareVC
+                            vc.fbPageData = self.fbPageData
+                            vc.dataUrl = selectedImageURL
+                            vc.typeSelected = type
+                            self.present(vc, animated: false, completion: nil)
+                        } else {
+                            showLoader()
+                            showAlertWithSingleAction(sender: self, message: "No page found")
+                        }
+                      
+                    }
+                    
+                })
+            }
+        } else {
             
-        }, onFailure: {
-            
-        })
-//        let vc = mainStoryboard.instantiateViewController(withIdentifier: "ShareDetailVC") as! ShareDetailVC
-//        vc.image = self.imageView.image
-//        vc.selectedImageURL = selectedImageURL
-//        vc.typeSelected = type
-//        self.navigationController?.pushViewController(vc, animated: true)
+                let vc = mainStoryboard.instantiateViewController(withIdentifier: "ShareDetailVC") as! ShareDetailVC
+                vc.image = self.imageView.image
+                vc.selectedImageURL = selectedImageURL
+                vc.typeSelected = type
+                self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     

@@ -28,9 +28,13 @@
 		8B36DB4628FDA3590035BA59 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB3F28FDA3590035BA59 /* CustomTextField.swift */; };
 		8B36DB4728FDA3590035BA59 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB4028FDA3590035BA59 /* CustomTextView.swift */; };
 		8B36DB4828FDA3590035BA59 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B36DB4128FDA3590035BA59 /* CustomButton.swift */; };
+		8B38060E29742A9500C78BC9 /* StaticContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B38060D29742A9500C78BC9 /* StaticContentVC.swift */; };
+		8B3806112974565100C78BC9 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3806102974565000C78BC9 /* EditProfileVC.swift */; };
+		8B38061429745E3C00C78BC9 /* PreferredLanguageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B38061329745E3C00C78BC9 /* PreferredLanguageVC.swift */; };
 		8B41DA2129214C0E00CB0F94 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B41DA2029214C0E00CB0F94 /* HomeVC.swift */; };
 		8B4821A42917DB4B00449E67 /* CreateBusinessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4821A32917DB4B00449E67 /* CreateBusinessVC.swift */; };
 		8B4821A72917E97E00449E67 /* RequestBusinessCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4821A62917E97D00449E67 /* RequestBusinessCategoryVC.swift */; };
+		8B5D28952972EB41008D36DA /* SearchHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D28942972EB41008D36DA /* SearchHomeVC.swift */; };
 		8B65E48D2901BA8B00E92F98 /* OTPVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B65E48C2901BA8A00E92F98 /* OTPVerificationVC.swift */; };
 		8B6833922961FA6100CC6D0E /* HomeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6833912961FA6100CC6D0E /* HomeDetailVC.swift */; };
 		8B6B166C296BF8E600EA1F01 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6B166B296BF8E600EA1F01 /* AccountVC.swift */; };
@@ -107,9 +111,13 @@
 		8B36DB3F28FDA3590035BA59 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		8B36DB4028FDA3590035BA59 /* CustomTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		8B36DB4128FDA3590035BA59 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		8B38060D29742A9500C78BC9 /* StaticContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticContentVC.swift; sourceTree = "<group>"; };
+		8B3806102974565000C78BC9 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
+		8B38061329745E3C00C78BC9 /* PreferredLanguageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredLanguageVC.swift; sourceTree = "<group>"; };
 		8B41DA2029214C0E00CB0F94 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		8B4821A32917DB4B00449E67 /* CreateBusinessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBusinessVC.swift; sourceTree = "<group>"; };
 		8B4821A62917E97D00449E67 /* RequestBusinessCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBusinessCategoryVC.swift; sourceTree = "<group>"; };
+		8B5D28942972EB41008D36DA /* SearchHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeVC.swift; sourceTree = "<group>"; };
 		8B65E48C2901BA8A00E92F98 /* OTPVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationVC.swift; sourceTree = "<group>"; };
 		8B6833912961FA6100CC6D0E /* HomeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailVC.swift; sourceTree = "<group>"; };
 		8B6B166B296BF8E600EA1F01 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
@@ -249,6 +257,9 @@
 		8B36DB3628FD9EDC0035BA59 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8B38061229745E1A00C78BC9 /* PreferredLanguageVC */,
+				8B38060F2974563900C78BC9 /* EditProfileVC */,
+				8B38060C29742A7100C78BC9 /* StaticContentVC */,
 				8B6B166A296BF8C900EA1F01 /* AccountVC */,
 				8B7B462A2966B5EA008CB57D /* ShareDetailVC */,
 				8B6833902961FA3600CC6D0E /* HomeDetailVC */,
@@ -267,6 +278,7 @@
 				8B6B166D296C806300EA1F01 /* ShowBusinessCategoryDetailVC.swift */,
 				8B6B166F296C89DD00EA1F01 /* BusinessCategoryPickerVC.swift */,
 				8B9E160F296F352A0096D344 /* SettingsVC.swift */,
+				8B5D28942972EB41008D36DA /* SearchHomeVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -291,6 +303,30 @@
 				8B36DB3E28FDA3590035BA59 /* CustomView.swift */,
 			);
 			path = CustomComponents;
+			sourceTree = "<group>";
+		};
+		8B38060C29742A7100C78BC9 /* StaticContentVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B38060D29742A9500C78BC9 /* StaticContentVC.swift */,
+			);
+			path = StaticContentVC;
+			sourceTree = "<group>";
+		};
+		8B38060F2974563900C78BC9 /* EditProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B3806102974565000C78BC9 /* EditProfileVC.swift */,
+			);
+			path = EditProfileVC;
+			sourceTree = "<group>";
+		};
+		8B38061229745E1A00C78BC9 /* PreferredLanguageVC */ = {
+			isa = PBXGroup;
+			children = (
+				8B38061329745E3C00C78BC9 /* PreferredLanguageVC.swift */,
+			);
+			path = PreferredLanguageVC;
 			sourceTree = "<group>";
 		};
 		8B41DA1F29214BF400CB0F94 /* HomeVC */ = {
@@ -756,6 +792,7 @@
 				8B6B1670296C89DD00EA1F01 /* BusinessCategoryPickerVC.swift in Sources */,
 				8BCBD23D29000F8D00CED2C8 /* CountryCodeViewModel.swift in Sources */,
 				8B7D3E55290058A300F4577B /* SMUtility.swift in Sources */,
+				8B5D28952972EB41008D36DA /* SearchHomeVC.swift in Sources */,
 				8B7D3E60290059A500F4577B /* Constant.swift in Sources */,
 				8B6C3BD728FF15210017F62F /* SignUpVC.swift in Sources */,
 				8B7D3E53290058A300F4577B /* Mappable.swift in Sources */,
@@ -772,10 +809,13 @@
 				8B36DB0928FD7C7E0035BA59 /* SceneDelegate.swift in Sources */,
 				8B7D3E59290058C100F4577B /* UserModel.swift in Sources */,
 				8B310B4829674F0200712FBC /* FacebookPagePickerVC.swift in Sources */,
+				8B38060E29742A9500C78BC9 /* StaticContentVC.swift in Sources */,
 				8B36DB4628FDA3590035BA59 /* CustomTextField.swift in Sources */,
 				8B6FB6A82911891F006529C4 /* ChooseLanguageVC.swift in Sources */,
 				8BAD1A0A2913D78700CD8B60 /* BusinessCategoryCVC.swift in Sources */,
+				8B3806112974565100C78BC9 /* EditProfileVC.swift in Sources */,
 				8B7B462C2966B600008CB57D /* ShareDetailVC.swift in Sources */,
+				8B38061429745E3C00C78BC9 /* PreferredLanguageVC.swift in Sources */,
 				8B4821A42917DB4B00449E67 /* CreateBusinessVC.swift in Sources */,
 				8BAD1A072913CA0E00CD8B60 /* SelectBusinessVC.swift in Sources */,
 				8B9E1610296F352A0096D344 /* SettingsVC.swift in Sources */,

@@ -9,7 +9,12 @@ import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
 class AccountVC: UIViewController {
-
+    fileprivate var homeViewModel:HomeViewModel = HomeViewModel()
+    @IBOutlet weak var nameLBL:UILabel!
+    @IBOutlet weak var emailLBL:UILabel!
+    @IBOutlet weak var subsLBL:UILabel!
+    @IBOutlet weak var pointsLBL:UILabel!
+    @IBOutlet weak var coeLBL:UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,14 +22,53 @@ class AccountVC: UIViewController {
     }
 
     @IBAction func onClickFacebookLogout(_ sender:UIButton) {
-        let loginManager = LoginManager()
-        loginManager.logOut()
-        
+
+        let fbLoginManager = LoginManager()
+            fbLoginManager.logOut()
+            let cookies = HTTPCookieStorage.shared
+            let facebookCookies = cookies.cookies(for: URL(string: "https://facebook.com/")!)
+            for cookie in facebookCookies! {
+                cookies.deleteCookie(cookie )
+            }
+        pageName = ""
+        pageId = ""
+    }
+    
+    @IBAction func onClickProfile(_ sender:UIButton) {
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "EditProfileVC") as! EditProfileVC
+        vc.userResponseModel = self.homeViewModel.userResponseModel
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func onClickPreffredLanguage(_ sender:UIButton) {
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "PreferredLanguageVC") as! PreferredLanguageVC
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func onClickThemeChange(_ sender:UIButton) {
+        let window = UIApplication.shared.keyWindow
+        window?.overrideUserInterfaceStyle = .light
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        homeViewModel.getUserProfile(sender: self, onSuccess: {
+            self.nameLBL.text =  self.homeViewModel.userResponseModel?.name ?? ""
+            self.emailLBL.text =  self.homeViewModel.userResponseModel?.email ?? ""
+            self.coeLBL.text =  "Referral Code: \(self.homeViewModel.userResponseModel?.ref_code ?? "")"
+            self.pointsLBL.text = "Point: \( self.homeViewModel.userResponseModel?.points ?? 0)"
+        }, onFailure: {
+            
+        })
     }
     
     @IBAction func onClickLogout(_ sender:UIButton) {
        showAlertWithTwoActions(sender: self, message: "Are you sure want to logout?", title: "Yes", secondTitle: "No", onSuccess: {
-           
+           self.homeViewModel.userLogout(sender: self, onSuccess: {
+               
+           }, onFailure: {
+               
+           })
        }, onCancel: {
            
        })

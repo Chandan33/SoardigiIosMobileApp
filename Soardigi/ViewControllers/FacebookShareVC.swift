@@ -23,9 +23,15 @@ class FacebookShareVC: UIViewController, PagePickerControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         if pageName.isEmpty && pageId.isEmpty {
-            lbl.text = fbPageData[0].name ?? ""
-            selectedIndex = fbPageData[0].id ?? ""
-        } else {
+            if fbPageData.count > 0 {
+                lbl.text = fbPageData[0].name ?? ""
+                pageName = fbPageData[0].name ?? ""
+                pageId = fbPageData[0].id ?? ""
+                selectedIndex = fbPageData[0].id ?? ""
+            } else {
+                
+            }
+         } else {
             lbl.text = pageName
             selectedIndex = pageId
         }
@@ -127,8 +133,13 @@ showLoader(status: true)
     
     
     func postMessage(pageID:String = "",pageAccessToken:String = "",url:String = "") {
-
-        let requestPage : GraphRequest = typeSelected == 0 ? (isSchedule ? GraphRequest(graphPath: "\(pageID)/photos", parameters: ["url" : url, "message":textField.text ?? ""], tokenString: pageAccessToken, version: nil , httpMethod: .post ) : GraphRequest(graphPath: "\(pageID)/photos", parameters: ["url" : url, "message":textField.text ?? "","scheduled_publish_time":scheduleTime,"published": false], tokenString: pageAccessToken, version: nil , httpMethod: .post )) : (isSchedule ? GraphRequest(graphPath: "\(pageID)/videos", parameters: ["file_url" : url,"description":textField.text ?? ""], tokenString: pageAccessToken, version: nil , httpMethod: .post ):GraphRequest(graphPath: "\(pageID)/videos", parameters: ["file_url" : url,"description":textField.text ?? "","scheduled_publish_time":scheduleTime,"published": false], tokenString: pageAccessToken, version: nil , httpMethod: .post ))
+        var message:String = ""
+        if textFieldTag.text!.isEmpty {
+            message = textField.text ?? ""
+        } else {
+            message = "\(textField.text ?? "")\n\(textFieldTag.text ?? "")"
+        }
+        let requestPage : GraphRequest = typeSelected == 0 ? (isSchedule ? GraphRequest(graphPath: "\(pageID)/photos", parameters: ["url" : url, "message":message], tokenString: pageAccessToken, version: nil , httpMethod: .post ) : GraphRequest(graphPath: "\(pageID)/photos", parameters: ["url" : url, "message":message,"scheduled_publish_time":scheduleTime,"published": false], tokenString: pageAccessToken, version: nil , httpMethod: .post )) : (isSchedule ? GraphRequest(graphPath: "\(pageID)/videos", parameters: ["file_url" : url,"description":message], tokenString: pageAccessToken, version: nil , httpMethod: .post ):GraphRequest(graphPath: "\(pageID)/videos", parameters: ["file_url" : url,"description":message,"scheduled_publish_time":scheduleTime,"published": false], tokenString: pageAccessToken, version: nil , httpMethod: .post ))
         requestPage.start(completion: { (connection, result, error) -> Void in
             showLoader()
             if let error = error {

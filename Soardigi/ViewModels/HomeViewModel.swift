@@ -8,7 +8,9 @@
 import UIKit
 
 class HomeViewModel: NSObject {
+    var userResponseModel:UserResponseModel?
     var businessCategoryResponseModel:[BusinessCategoryResponseModel] = [BusinessCategoryResponseModel]()
+    var businessCategoryResponseModel1:[BusinessCategoryResponseModel1] = [BusinessCategoryResponseModel1]()
     var businessModel:[BusinessModel] = [BusinessModel]()
     var businessName:String = ""
     var categoryName:String = ""
@@ -21,6 +23,38 @@ class HomeViewModel: NSObject {
     var tokenId:String = ""
     var languages:[LanguageResponseModel] = [LanguageResponseModel]()
     func getLanguageList(sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender){
+            showLoader(status: true)
+            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/" + API.kLanguageGet, params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                DispatchQueue.main.async {
+                    showLoader()
+                    guard let response = responseData.decoder(LanguageResponseMainModel.self) else{return}
+                    
+                    switch status{
+                    case 200:
+                        print(response)
+                        self.languages = response.languages ?? []
+                        onSuccess()
+                        
+                        break
+                    default:
+                        
+                        onFailure()
+                        
+                        break
+                    }
+                }
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+        }
+    }
+    
+    func getPreferLanguage(sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
         if  ServerManager.shared.CheckNetwork(sender: sender){
             showLoader(status: true)
             ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/" + API.kLanguageGet, params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
@@ -39,6 +73,65 @@ class HomeViewModel: NSObject {
                         
                         onFailure()
                         
+                        break
+                    }
+                }
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+        }
+    }
+    
+    func userLogout(sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender){
+            showLoader(status: true)
+            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/auth/v1/logout", params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                DispatchQueue.main.async {
+                    showLoader(status: false)
+                    guard let response = responseData.decoder(LanguageResponseMainModel.self) else{return}
+                    
+                    switch status{
+                    case 200:
+                        
+                        onSuccess()
+                        
+                        break
+                    default:
+                        
+                        onFailure()
+                        
+                        break
+                    }
+                }
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+        }
+    }
+    
+    func getUserProfile(sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender){
+            showLoader(status: true)
+            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/auth/v1/user", params: nil,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                DispatchQueue.main.async {
+                    showLoader()
+                    guard let response = responseData.decoder(GetUserResponseMainModel.self) else{return}
+                    
+                    switch status{
+                    case 200:
+                        self.userResponseModel = response.user
+                        onSuccess()
+                        break
+                    default:
+                        onFailure()
                         break
                     }
                 }
@@ -283,6 +376,7 @@ class HomeViewModel: NSObject {
                     
                     switch status{
                     case 200:
+                        self.businessCategoryResponseModel.removeAll()
                         self.businessCategoryResponseModel = response.businessCategoryResponseModel ?? []
                         onSuccess()
                         break
@@ -296,6 +390,78 @@ class HomeViewModel: NSObject {
             }, failureHandler: { (error) in
                 DispatchQueue.main.async {
                     showLoader()
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+            
+        }
+    }
+    
+    
+    
+    func setWaterMark(isWaterMark:Bool = false,sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender) {
+            
+            
+            let params:[String:Any] = ["watermark":isWaterMark]
+            
+            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/auth/v1/setting" , params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                DispatchQueue.main.async {
+                    
+                    guard let response = responseData.decoder(BusinessCategoryResponseMainModel1.self) else{return}
+                    
+                    switch status{
+                    case 200:
+                       
+                        self.businessCategoryResponseModel1 = response.businessCategoryResponseModel ?? []
+                        onSuccess()
+                        break
+                    default:
+                        
+                        
+                        onFailure()
+                        break
+                    }
+                }
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
+                    showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
+                    onFailure()
+                }
+            })
+            
+        }
+    }
+    
+    
+    
+    func getSearchCategory(search:String = "",sender:UIViewController,onSuccess:@escaping()->Void,onFailure:@escaping()->Void) {
+        if  ServerManager.shared.CheckNetwork(sender: sender) {
+            
+            
+            let params:[String:Any] = ["search":search]
+            
+            ServerManager.shared.httpPost(request:  "http://stgapi.soardigi.in/api/v1/category-search" , params: params,headers: ServerManager.shared.apiHeaders, successHandler: { (responseData:Data,status)  in
+                DispatchQueue.main.async {
+                    
+                    guard let response = responseData.decoder(BusinessCategoryResponseMainModel1.self) else{return}
+                    
+                    switch status{
+                    case 200:
+                       
+                        self.businessCategoryResponseModel1 = response.businessCategoryResponseModel ?? []
+                        onSuccess()
+                        break
+                    default:
+                        
+                        
+                        onFailure()
+                        break
+                    }
+                }
+            }, failureHandler: { (error) in
+                DispatchQueue.main.async {
                     showAlertWithSingleAction(sender: sender, message: error?.localizedDescription ?? "")
                     onFailure()
                 }
@@ -563,6 +729,10 @@ extension HomeViewModel {
         businessCategoryResponseModel.count
     }
     
+    func numberOfRowsSearch() -> Int {
+        businessCategoryResponseModel1.count
+    }
+    
     func numberOfRowsFrame() -> Int {
         imageFrameResponseModel.count
     }
@@ -577,6 +747,10 @@ extension HomeViewModel {
     
     func cellForRowAt(indexPath:IndexPath) -> BusinessCategoryResponseModel {
         businessCategoryResponseModel[indexPath.row]
+    }
+    
+    func cellForRowAtSearcg(indexPath:IndexPath) -> BusinessCategoryResponseModel1 {
+        businessCategoryResponseModel1[indexPath.row]
     }
     
     func didSelectAt(indexPath:IndexPath) -> BusinessCategoryResponseModel {
